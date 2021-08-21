@@ -105,3 +105,5 @@ const iFact = (num) => {
     return sum;
 }
 console.log(iFact(5));
+
+
