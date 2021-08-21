@@ -70,10 +70,12 @@ const linearSearch2 = (x, arr) => {
         } else{
             arr[i] === arr[i];
         }
+    }if(count === 0){
+        return false;
     }
     return count +" number(s) match what your looking for" + " and they are found at these or this index(s) " + index;
 }
-console.log(linearSearch2(8,[24, 8, 23, 3, 8]));
+console.log(linearSearch2(23929,[24, 8, 23, 3, 8, -8, 10, 9,100000, 32432902, 23929, 8585, 888888, 8]));
 
 const rSum = (num) => {
     let total = 0;
@@ -93,7 +95,7 @@ const rSum2 = (num) => {
         return num + rSum2(num - 1);
     }
 }
-console.log(rSum2(15));
+console.log(rSum2(5));
 
 const iFact = (num) => {
     let sum = 1;
@@ -102,4 +104,4 @@ const iFact = (num) => {
     }
     return sum;
 }
-console.log(iFact(15));
+console.log(iFact(5));

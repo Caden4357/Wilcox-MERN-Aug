@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 const Main = (props) => {
     const [todo, setTodo] = useState("");
     const {todoList, setTodoList} = (props);
-    // const [isCompleted, setIsCompleted] = useState(false);
+    const [isCompleted, setIsCompleted] = useState(false);
 
     const handleCheckBox = (idx) => {
         const updatedTodos = todoList.map((todo, index) => {
@@ -27,7 +27,7 @@ const Main = (props) => {
         e.preventDefault();
         setTodoList([...todoList, {
             todo: todo,
-            isCompleted :false
+            isCompleted :false,
         }]);
         setTodo("")
 }
@@ -35,33 +35,32 @@ const Main = (props) => {
     return(
         <div>
             <div>
+                <h1>Todo List</h1>
                 <form onSubmit={(e) => {
                     handleSubmit(e);
                 }}>
-                <input onChange={(e) => {
+                <input className="input-box" onChange={(e) => {
                     setTodo(e.target.value);
                 }} type="text" value={todo}></input>
-                <button>Add</button>
+                <button className="input-btn">Add</button>
                 </form>
             </div>
             <div>
                 <div>
                 {
-                    todoList.map((todoItem, idx) => (
-                    <div key={idx}>
-                        <span >{todoItem.todo}</span>
-                        
-                        {/* {
-                            todoItem.isCompleted == true?
-                            todoClasses = "completed"
-                            :todoClasses = "notCompleted"
-                        } */}
+                    todoList.map((todoItem, idx) => {
+                        let strikeThrough = "notCompleted";
+                        if(todoItem.isCompleted == true){
+                            strikeThrough = "completed"
+                        }
+                    return (<div key={idx}>
+                        <span className={strikeThrough}>{todoItem.todo}</span>
                         <input type="checkbox" checked={todoItem.isCompleted}
                         onChange={(e) => handleCheckBox(idx)} />
                         <button onClick={(e) => handleDeleteTodo(idx)}
                         >Delete</button>
                     </div>
-                    ))
+                    )})
                 }
                 </div>
             </div>

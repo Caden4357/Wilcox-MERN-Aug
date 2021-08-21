@@ -42,3 +42,7 @@
 .notCompleted{
   text-decoration: none;
 }
+.input-box, .input-btn{
+  margin: 20px 0px 20px 0px;
+
+}
