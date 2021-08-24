@@ -30,7 +30,6 @@ const Form = (props) => {
         setFavStack("")
     } 
 
-
     return (
         <div className="wrapper">
             <h1>Add A Student!</h1>
@@ -56,8 +55,8 @@ const Form = (props) => {
                 <label htmlFor="favStack">Whats your favorite stack?</label>
                 <select value={favStack} name="favStack" onChange={(e) =>setFavStack(e.target.value)}>
                     <option default>Select...</option>
-                    <option value="java">Java</option>
-                    <option value="python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
                     <option value="MERN">MERN</option>
                 </select>
             </div>
