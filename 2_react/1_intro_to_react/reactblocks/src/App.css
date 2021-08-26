@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: red;
+
+}
+
+.header{
+  width: 95%;
+  height: 100px;
+  margin: 2px auto;
+  font-size: 50px;
+  background-color: green;
+  color: white;
+}
+.navigation{
+  background-color: blue;
+  display: flex;
+  width: 25%;
+  height: 400px;
+  margin-left: 35px;
+  margin-top: 20px;
+  
+}
+.main{
+  background-color: red;
+  display: flex;
+  width: 70%;
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 500px;
+}
+.advertisement{
+  background-color: purple;
+  width: 95%;
+  height: 100px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  
+}
+.subcontents{
+  width: 400px;
+  height: 400px;
+  background-color: yellow;
+  justify-content: space-between;
+  margin: 20px;
+}
