@@ -1,35 +1,35 @@
 import React, {useState} from "react";
 
 const Display = (props) =>{
-    const {studentList} = props;
+    const {studentList, setStudentList} = props;
+
+    const handleDeleteStudent = (studentNameToDelete) => {
+        console.log(studentNameToDelete);
+        setStudentList(studentList.filter((student) =>{
+            return student.name !== studentNameToDelete;
+        }))
+    }
 
 
     return(
         <div>
-            <div> 
-                <div>
-                    <table>
-                        <tr>
-                            <th>Firstname</th>
-                            <th>Favorite Stack</th>
-                            <th>Tall Club</th>
-                        </tr>
+            <h2>Roster:</h2>
+                <div style={{display:"flex"}}>
+                    {
+                    studentList.map((student, idx) =>(
+                        <div key={idx} style={{display:"flex", flexDirection:"column", padding:"10px", border:"3px solid black", margin:"5px"}}>
+                            <p>Name: {student.name}</p>
+                            <p>Favorite Stack:{student.favStack}</p>
                         {
-                        studentList.map((student, idx) =>(
-                        <tr key={idx}>
-                            <td>{student.name}</td>
-                            <td>{student.favStack}</td>
-                            {
-                                student.tallClub == true?
-                                <td>Member of the tall club</td>
-                                :<td>Shorty!</td>
-                            }
-                        </tr>
+                            student.tallClub === true?
+                            <p>Member of the tall club</p>
+                            :<p>Shorty!</p>
+                        }
+                            <button onClick={() => handleDeleteStudent(student.name)}>Delete</button>
+                        </div>
                     ))
-                    }
-                    </table>
+                }
                 </div>
-            </div>
         </div>
     )
 }
