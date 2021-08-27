@@ -106,4 +106,37 @@ const iFact = (num) => {
 }
 console.log(iFact(5));
 
+// Fibonnaci algorithm recursive this increases the time complexity 
 
+// const fibonacci = (num) => {
+//     let num1=0;
+//     let num2=1;
+//     let sum;
+//     for (var i = 0; i < num; i++) 
+//     {
+//         sum=num1+num2;
+//         num1=num2;
+//         num2=sum;
+//     }
+//     return num2;
+//     }
+//     console.log(fibonacci(5));
+
+const binarySearch = (arr, item) => {
+    let low = 0;
+    let high = arr.length-1;
+    while(low <= high){
+        let mid = Math.floor((low + high) /2);
+        let guess = arr[mid];
+        if(guess === item){
+            return mid;
+        }
+        if(guess > item){
+            high = mid - 1
+        }
+        else{
+            low = mid + 1
+        }
+    }
+}
+console.log(binarySearch([1,3,5,7,9,12,15,19,99,2000], 3));
