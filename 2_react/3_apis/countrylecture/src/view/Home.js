@@ -5,10 +5,12 @@ import DisplayAll from '../components/DisplayAll';
 
 const Home = (props) => {
 
+    const [countryList, setCountryList] = useState([]);
+
     return(
         <div>
-            <Form/>
-            <DisplayAll/>
+            <Form countryList={countryList} setCountryList={setCountryList}/>
+            <DisplayAll countryList={countryList} setCountryList={setCountryList}/>
         </div>
     )
 }
