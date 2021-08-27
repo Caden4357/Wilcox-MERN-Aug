@@ -19,13 +19,32 @@ const DisplayAll = (props) => {
         setCountryList([...countryList, country]);
     }
 
+    const propsHandler = (country) => {
+        if(country.rating && country.review){
+            return(
+                <Link to={`/country/${country.alpha2Code}/${country.rating}/${country.review}`}><p>{country.name}</p></Link>
+            )}
+        else if(country.rating){
+            return(
+                <Link to={`/country/${country.alpha2Code}/${country.rating}`}><p>{country.name}</p></Link>
+            )}
+        else{
+            return (
+                <Link to={`/country/${country.alpha2Code}`}><p>{country.name}</p></Link>
+            )
+        }
+    }
+
     return(
         <div style={{display:"flex", flexWrap: "wrap"}}>
 
             {
                 countryList.map((country, index) =>(
-                    <div style={{border:'5px solid red'}} key={index}>
-                        <p>{country.name}</p>
+                    <div style={{border:'2px solid red', padding: '5px', margin: '4px'}} key={index}>
+
+                        {
+                            propsHandler(country)
+                        }
                         <label htmlFor="rating">Leave A Rating</label>
                         <input type="number" onChange={(e) => ratingHandler(e, country)}/>
                         <br/>
