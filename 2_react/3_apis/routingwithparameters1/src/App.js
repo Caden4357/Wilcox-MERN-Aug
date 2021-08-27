@@ -13,9 +13,8 @@ function App() {
     <div className="App">
       <Router>
         <Welcome path="/welcome"/>
-        <Number path="/:id"/>
-        <Word path="/word/:word"/>
-        <WordAndColor path="/word/:word/:color/:bgColor"/>
+        <Word path="/:word"/>
+        <WordAndColor path="/:word/:color/:bgColor"/>
       </Router>
     </div>
   );

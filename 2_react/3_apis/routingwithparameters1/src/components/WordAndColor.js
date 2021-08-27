@@ -6,7 +6,7 @@ const WordAndColor = (props) => {
     
     return(
         <div style = {{backgroundColor: bgColor}}>
-            <h1 style={{color:color}}>The Word is: {props.word}</h1>
+            <h1 style={{color:color}}>{props.word}</h1>
         </div>
     )
 }
