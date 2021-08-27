@@ -1,7 +1,6 @@
 import React from 'react';
 import {Router } from '@reach/router';
 import Welcome from './components/Welcome';
-import Number from './components/Number';
 import Word from './components/Word';
 import WordAndColor from './components/WordAndColor';
 import './App.css';
