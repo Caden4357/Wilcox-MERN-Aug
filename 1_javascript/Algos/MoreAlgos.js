@@ -140,3 +140,26 @@ const binarySearch = (arr, item) => {
     }
 }
 console.log(binarySearch([1,3,5,7,9,12,15,19,99,2000], 3));
+
+
+                        // 12:01:00AM -> 00:01:00
+    const convertTime12to24 = (time12h) => {
+        const [time, modifier] = time12h.split(' ');
+        
+        let [hours, minutes] = time.split(':');
+        
+        if (hours === '12') {
+            hours = '00';
+        }
+        
+        if (modifier === 'PM') {
+            hours = parseInt(hours, 10) + 12;
+        }
+        
+        return `${hours}:${minutes}`;
+        }
+        
+        console.log(convertTime12to24('01:02 PM'));
+        console.log(convertTime12to24('05:06 PM'));
+        console.log(convertTime12to24('12:00 PM'));
+        console.log(convertTime12to24('12:00 AM'));
