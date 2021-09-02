@@ -1,0 +1,89 @@
+> use my_first_db
+switched to db my_first_db
+> db.createCollection("students")
+{ "ok" : 1 }
+> show dbs
+admin        0.000GB
+config       0.000GB
+local        0.000GB
+my_first_db  0.000GB
+test_app     0.000GB
+> show collections
+students
+> db.students.insert({name:"Caden", home_state:"WA", lucky_number:7,birthday:{month:09, day:19, year:1997}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Tom", home_state:"PA", lucky_number:4, birthday:{month:12, day:06, year:1988}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Sade", home_state:"Nigeria", lucky_number:8, birthday:{month:01, day:16, year:1959}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Dan", home_state:"ID", lucky_number:6, birthday:{moth:02, day:12, year:1966}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"Steve", home_state:"CA", lucky_number:12, birthday:{month:01, day:04, year:1901}})
+WriteResult({ "nInserted" : 1 })
+> db.students.find()
+{ "_id" : ObjectId("612db7256f66b69a725a4512"), "name" : "Caden", "home_state" : "WA", "lucky_number" : 7, "birthday" : { "month" : 9, "day" : 19, "year" : 1997 } }
+{ "_id" : ObjectId("612db7ba6f66b69a725a4513"), "name" : "Tom", "home_state" : "PA", "lucky_number" : 4, "birthday" : { "month" : 12, "day" : 6, "year" : 1988 } }
+{ "_id" : ObjectId("612db9da6f66b69a725a4514"), "name" : "Sade", "home_state" : "Nigeria", "lucky_number" : 8, "birthday" : { "month" : 1, "day" : 16, "year" : 1959 } }
+{ "_id" : ObjectId("612dbacf6f66b69a725a4515"), "name" : "Dan", "home_state" : "ID", "lucky_number" : 6, "birthday" : { "moth" : 2, "day" : 12, "year" : 1966 } }
+{ "_id" : ObjectId("612dbb856f66b69a725a4516"), "name" : "Steve", "home_state" : "CA", "lucky_number" : 12, "birthday" : { "month" : 1, "day" : 4, "year" : 1901 } }
+> db.students.find({home_state:"WA"})
+{ "_id" : ObjectId("612db7256f66b69a725a4512"), "name" : "Caden", "home_state" : "WA", "lucky_number" : 7, "birthday" : { "month" : 9, "day" : 19, "year" : 1997 } }
+> db.students.find({home_state:"CA"})
+{ "_id" : ObjectId("612dbb856f66b69a725a4516"), "name" : "Steve", "home_state" : "CA", "lucky_number" : 12, "birthday" : { "month" : 1, "day" : 4, "year" : 1901 } }
+> db.students.find({lucky_number: {$gt: 3}}).pretty()
+{
+        "_id" : ObjectId("612db7256f66b69a725a4512"),
+        "name" : "Caden",
+        "home_state" : "WA",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 9,
+                "day" : 19,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("612db7ba6f66b69a725a4513"),
+        "name" : "Tom",
+        "home_state" : "PA",
+        "lucky_number" : 4,
+        "birthday" : {
+                "month" : 12,
+                "day" : 6,
+                "year" : 1988
+        }
+}
+{
+        "_id" : ObjectId("612db9da6f66b69a725a4514"),
+        "name" : "Sade",
+        "home_state" : "Nigeria",
+        "lucky_number" : 8,
+        "birthday" : {
+                "month" : 1,
+                "day" : 16,
+                "year" : 1959
+        }
+}
+{
+        "_id" : ObjectId("612dbacf6f66b69a725a4515"),
+        "name" : "Dan",
+        "home_state" : "ID",
+        "lucky_number" : 6,
+        "birthday" : {
+                "moth" : 2,
+                "day" : 12,
+                "year" : 1966
+        }
+}
+{
+        "_id" : ObjectId("612dbb856f66b69a725a4516"),
+        "name" : "Steve",
+        "home_state" : "CA",
+        "lucky_number" : 12,
+        "birthday" : {
+                "month" : 1,
+                "day" : 4,
+                "year" : 1901
+        }
+}
+>
