@@ -163,3 +163,17 @@ console.log(binarySearch([1,3,5,7,9,12,15,19,99,2000], 3));
         console.log(convertTime12to24('05:06 PM'));
         console.log(convertTime12to24('12:00 PM'));
         console.log(convertTime12to24('12:00 AM'));
+
+
+const subsequence = (arr, sequence) => {
+    let seqIdx = 0;
+    for (var i = 0; i < arr.length; i++){
+        if(seqIdx === sequence.length){
+            return true;
+        }
+        if (sequence[seqIdx] === arr[i]){
+            seqIdx += 1;
+        }
+    }return seqIdx === sequence.length
+}
+console.log(subsequence([5,1,22,25,6,-1,8.10], [1,6,-1,10]))
