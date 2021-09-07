@@ -6,15 +6,13 @@ import PersonForm from '../components/PersonForm';
 const Main = () => {
     const [message, setMesssage] = useState("Loading...")
     useEffect(() => {
-        axios.get("http://localhost:8000/api")
+        axios.get("http://localhost:3000/api")
             .then(res => setMesssage(res.data.message))
     }, []);
 
     return (
         <div>
-            <Router>
-            <PersonForm path="/api"/>
-            </Router>
+            <h1>Hello</h1>
         </div>
     )
 }
