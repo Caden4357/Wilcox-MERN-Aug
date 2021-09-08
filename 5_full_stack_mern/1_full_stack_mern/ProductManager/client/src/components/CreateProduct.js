@@ -18,7 +18,7 @@ const CreateProduct = () => {
             description
         };
 
-        axios.post('http://localhost:8000/api/newProduct/', newProduct)
+        axios.post('http://localhost:8000/api/products/', newProduct)
             .then(res=>console.log(res))
             .catch(err=>console.log(err))
     }

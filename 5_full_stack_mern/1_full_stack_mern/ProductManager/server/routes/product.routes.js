@@ -6,7 +6,7 @@ const ProductController = require("../controllers/product.controller");
 module.exports = (app) => {
     app.get('/api/products', ProductController.findAllProducts);
     //if data is being sent to my server to create something new, we use a POST request
-    app.post('/api/newProduct', ProductController.createNewProduct);
+    app.post('/api/products', ProductController.createNewProduct);
     //Make sure this goes second (with the params) because it will search this one by default.
     app.get('/api/product/:id', ProductController.findOneProduct);
     app.put('/api/product/:id', ProductController.updateProduct);

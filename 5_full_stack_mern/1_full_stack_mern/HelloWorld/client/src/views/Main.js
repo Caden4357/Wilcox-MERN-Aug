@@ -1,18 +1,26 @@
 import React, {useEffect, useState} from 'react';
+import PersonList from '../components/PersonList';
 import {Router} from "@reach/router";
 import axios from "axios"
 import PersonForm from '../components/PersonForm';
 
 const Main = () => {
-    const [message, setMesssage] = useState("Loading...")
+    const [people, setPeople] = useState([]);
+    const [loaded, setLoaded] = useState(false);
+
     useEffect(() => {
-        axios.get("http://localhost:3000/api")
-            .then(res => setMesssage(res.data.message))
-    }, []);
+        axios.get('http://localhost:8000/api/users')
+            .then(res => {
+                setPeople(res.data);
+                setLoaded(true);
+            });
+    }, [])
 
     return (
         <div>
-            <h1>Hello</h1>
+            <PersonForm/>
+            <hr/>
+            {loaded && <PersonList people={people}/>}
         </div>
     )
 }

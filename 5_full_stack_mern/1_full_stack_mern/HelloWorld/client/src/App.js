@@ -1,13 +1,15 @@
 import Main from "./views/Main";
-import PersonForm from "./components/PersonForm";
+import Detail from "./components/Detail";
 import { Router } from "@reach/router";
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-        <Main/>
-        <PersonForm/>
+      <Router>
+        <Main path="/user"/>
+        <Detail path="/user/:id"/>
+      </Router>
     </div>
   );
 }
