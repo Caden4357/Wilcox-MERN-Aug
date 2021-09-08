@@ -1,6 +1,6 @@
 //configure connection with mongo using mongoose
 const mongoose = require("mongoose");
-const dbName = "jokes";
+const dbName = "cartoons";
 
 //need to install software, walkthrough on the platform. Test that you're connected by mongo in terminal
 mongoose.connect("mongodb://localhost/" + dbName,{
