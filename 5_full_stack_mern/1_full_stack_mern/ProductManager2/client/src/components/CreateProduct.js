@@ -12,12 +12,13 @@ const CreateProduct = () => {
         e.preventDefault();
         //make a post request to create a new person
 
-
-        axios.post('http://localhost:8000/api/products/', {
+        const newProduct = {
             title,
             price,
             description
-        })
+        };
+
+        axios.post('http://localhost:8000/api/products/', newProduct)
             .then(res=>console.log(res))
             .catch(err=>console.log(err))
     }
