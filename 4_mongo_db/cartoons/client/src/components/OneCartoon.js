@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import DeleteCartoon from "./DeleteCartoon";
 import axios from 'axios';
 import {Link, navigate} from '@reach/router';
 
@@ -25,6 +26,7 @@ const OneCartoon = (props) => {
                 <p>This Is Kid Friendly</p>
                 :<p>May Not Be Suitable For Kids</p>
             }
+            <DeleteCartoon id={oneCartoon._id}/>
         </div>
     )
 }

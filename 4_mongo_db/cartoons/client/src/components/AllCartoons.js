@@ -26,6 +26,9 @@ const AllCartoons = (props) => {
                             <p>{cartoon.name}</p>
                             <img src={cartoon.image} alt="cartoon" style={{width:"200px", height:"200px"}}/>
                             </Link>
+                            <Link to={`/cartoon/edit/${cartoon._id}`}>
+                                Edit
+                            </Link>
                             <DeleteCartoon cartoonList={cartoonList} setCartoonList={setCartoonList} id={cartoon._id}/>
                         </div> 
                     ))

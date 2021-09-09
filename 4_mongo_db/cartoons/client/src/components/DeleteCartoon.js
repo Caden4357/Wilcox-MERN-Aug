@@ -14,11 +14,16 @@ const DeleteCartoon = (props) => {
         axios.delete(`http://localhost:8000/api/cartoons/${id}`)
             .then((res) => {
                 console.log(res.data);
-                deleteFilter(id);
+                if(cartoonList){
+                    deleteFilter(id);
+                }
+                else{
+                    navigate('/')
+                }
+                
             })
             .catch((err) => console.log(err))
     }
-
     return (
         <div>
             <button onClick={deleteHandler}>Delete</button>

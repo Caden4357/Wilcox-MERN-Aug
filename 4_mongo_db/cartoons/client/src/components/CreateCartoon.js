@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 import {Link, navigate} from '@reach/router';
+import Form from "./Form";
 
 const CreateCartoon = (props) => {
 
@@ -44,66 +45,15 @@ const CreateCartoon = (props) => {
         })
     }
 
-
-
-
     return (
         <div>
-            <h1>Create Cartoon</h1>
-            <form onSubmit={newSubmitHandler}>
-                <div>
-                    <label htmlFor="">Name:</label>
-                    <input onChange={newChangeHandler} name="name" type="text" value={newCartoon.name}/>
-                </div>
-                <div>
-                    <label htmlFor="era">Era</label>
-                    <select onChange={newChangeHandler} name="era" value={newCartoon.era}>
-                        <option value="none" defaultValue hidden>Select An Era</option>
-                        <option value ="1920">1920</option>
-                        <option value ="1930">1930</option>
-                        <option value ="1940">1940</option>
-                        <option value ="1950">1950</option>
-                        <option value ="1960">1960</option>
-                        <option value ="1970">1970</option>
-                        <option value ="1980">1980</option>
-                        <option value ="1990">1990</option>
-                        <option value ="2000">2000</option>
-                        <option value ="2010">2010</option>
-                        <option value ="2020">2020</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="genre">Genre</label>
-                    <select onChange={newChangeHandler} name="genre" value={newCartoon.genre}>
-                        <option value="none" defaultValue hidden>
-                            Select A Genre
-                        </option>
-                        <option value="Anime">Anime</option>
-                        <option value="Manga">Manga</option>
-                        <option value="Comedy">Comedy</option>
-                        <option value="Drama">Drama</option>
-                        <option value="Action">Action</option>
-                        <option value="Children">Children</option>
-                        <option value="Mystery">Mystery</option>
-                        <option value="Horror">Horror</option>
-                        <option value="Comic">Comic</option>
-                        <option value="Parody">Parody</option>
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="image">Image URL:</label>
-                    <input onChange={newChangeHandler} name="image" type="text" value={newCartoon.image}/>
-                </div>
-                <div>
-                    <label htmlFor="rating">Rating</label>
-                    <input onChange={newChangeHandler} name="rating" type="number" value={newCartoon.rating}/>
-                </div>
-                <div>
-                    <label htmlFor="suitableForKids">Kid Friendly:</label>
-                    <input onChange={newChangeHandler} name="suitableForKids" type="checkbox" checked={newCartoon.suitableForKids}/>
-                </div>
-                <button>Add Cartoon</button>
-            </form>
+            <Form 
+            newChangeHandler={newChangeHandler}
+            submitHandler={newSubmitHandler} 
+            buttonText="Add A New Cartoon" 
+            cartoon={newCartoon}
+            setCartoon={setNewCartoon}
+            />
         </div>
     )
 }
