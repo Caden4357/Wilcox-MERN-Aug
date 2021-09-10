@@ -19,6 +19,7 @@ const ProductList = (props) => {
 
     return (
         <div>
+            <div className="background">
             {
                 productList?
                 productList.map((product, idx) => (
@@ -34,6 +35,7 @@ const ProductList = (props) => {
                 ))
                 :null
             }
+            </div>
         </div>
     )
 }

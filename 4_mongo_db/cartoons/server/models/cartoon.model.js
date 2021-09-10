@@ -8,7 +8,7 @@ const CartoonSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        required: [true, "Because we love pictures, you must add one!"]
+        required: [true, "Image URL required"]
     },
     // enumeration will allow us to limit the answers to specific strings
     // test the enum w a previous assignment
@@ -49,7 +49,9 @@ const CartoonSchema = new mongoose.Schema({
     },
     //this is optional because no required 
     rating: {
-        type: Number
+        type: Number,
+        min: [0, "rating must be between 0-10"], 
+        max: [10, "rating must be between 0-10"]
     },
     suitableForKids:{
         type: Boolean

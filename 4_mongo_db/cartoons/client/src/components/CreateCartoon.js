@@ -4,7 +4,7 @@ import {Link, navigate} from '@reach/router';
 import Form from "./Form";
 
 const CreateCartoon = (props) => {
-
+    const [errors, setErrors] = useState({});
     // this is the best way to create a new object rather then const [name, setName] = useState("") for every key value pair of our model 
     // the keys whos values should be numbers are in string format and we dont worry about this because mongo and mongoose turns it into a number if its valid automatically becuase we set it up in our model/schema to be a number 
     const [newCartoon, setNewCartoon] = useState({
@@ -42,6 +42,8 @@ const CreateCartoon = (props) => {
         })
         .catch((err) =>{
             console.log(err);
+            console.log(err.response.data.errors);
+            setErrors(err.response.data.errors)
         })
     }
 
@@ -53,6 +55,7 @@ const CreateCartoon = (props) => {
             buttonText="Add A New Cartoon" 
             cartoon={newCartoon}
             setCartoon={setNewCartoon}
+            errors={errors}
             />
         </div>
     )

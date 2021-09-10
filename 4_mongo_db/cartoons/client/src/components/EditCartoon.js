@@ -4,6 +4,7 @@ import axios from 'axios';
 import {Link, navigate} from '@reach/router';
 
 const EditCartoon = (props) => {
+    const [errors, setErrors] = useState({});
 
     const [updatedCartoon, setUpdatedCartoon] = useState({
         //setting the type ahead of time is to prevent bugs like uncontrolled input error
@@ -39,7 +40,9 @@ const EditCartoon = (props) => {
             navigate('/cartoons')
         })
         .catch((err) =>{
-            console.log(err);
+            console.log(err)
+            console.log(err.response.data.errors);
+            setErrors(err.response.data.errors)
         })
     }
 
@@ -50,6 +53,7 @@ const EditCartoon = (props) => {
             buttonText="Update Cartoon"
             cartoon={updatedCartoon}
             setCartoon={setUpdatedCartoon}
+            errors={errors}
             />
         </div>
     )

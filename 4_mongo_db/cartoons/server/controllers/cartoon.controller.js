@@ -34,7 +34,7 @@ createNewCartoon: (req, res)=>{
     Cartoon.create(req.body)
     .then((newCartoon)=> res.json(newCartoon))
     .catch((err)=> {
-        console.log("Create cartoons failed");
+        console.log("Create cartoon failed");
         res.status(400).json(err)
     })
 },
@@ -47,14 +47,20 @@ updateCartoon: (req, res) => {
         { new: true, runValidators: true }
     )
         .then(updatedCartoon => res.json(updatedCartoon))
-        .catch(err => res.json({ message: 'Something went wrong', error: err }));
+        .catch((err)=>{
+            console.log("Update cartoon failed");
+            res.status(400).json(err);
+        })
 },
 
 deleteCartoon: (req, res)=>{
     //id will come to us from the param/url/route call    /api/cartoons/:id
     Cartoon.deleteOne({_id: req.params.id})
-    .then((deletedCartoon)=>res.json({deleted: deletedCartoon}))
-    .catch((err)=>res.json({message: "Errors in deleteCartoon", error:err}))
+    .then((deletedCartoon)=>res.json(deletedCartoon))
+    .catch((err)=>{
+        console.log("Delete Cartoon failed");
+        res.status(400).json(err);
+    })
 }
 
 }

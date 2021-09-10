@@ -35,7 +35,7 @@ const CreateProduct = (props) => {
     }
 
     return (
-        <div>
+        <div className="background">
             <Form product={updatedProduct} setProduct={setUpdatedProduct} submitHandler={updateHandler}/>
         </div>
     )

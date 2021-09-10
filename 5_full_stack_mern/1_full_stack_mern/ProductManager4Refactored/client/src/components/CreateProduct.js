@@ -29,7 +29,7 @@ const CreateProduct = (props) => {
     }
 
     return (
-        <div>
+        <div className="background">
             <Form product={newProduct} setProduct={setNewProduct} submitHandler={newSubmitHandler}/>
         </div>
     )

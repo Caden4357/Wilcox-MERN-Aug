@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 
 const Form = (props) => {
     
-    const {submitHandler, buttonText, cartoon,  setCartoon} = props;
+    const {submitHandler, buttonText, cartoon,  setCartoon, errors} = props;
     
     const newChangeHandler = (e) => {
         let newStateObject = {...cartoon};
@@ -23,6 +23,11 @@ const Form = (props) => {
         <div>
             <label htmlFor="">Name:</label>
             <input onChange={newChangeHandler} name="name" type="text" value={cartoon.name}/>
+            {
+                errors.name?
+                <span style={{color:"red"}}>{errors.name.message}</span>
+                :null
+            }
         </div>
         <div>
             <label htmlFor="era">Era</label>
@@ -40,6 +45,11 @@ const Form = (props) => {
                 <option value ="2010">2010</option>
                 <option value ="2020">2020</option>
             </select>
+            {
+                errors.era?
+                <span style={{color:"red"}}>{errors.era.message}</span>
+                :null
+            }
         </div>
         <div>
             <label htmlFor="genre">Genre</label>
@@ -58,14 +68,29 @@ const Form = (props) => {
                 <option value="Comic">Comic</option>
                 <option value="Parody">Parody</option>
             </select>
+            {
+                errors.genre?
+                <span style={{color:"red"}}>{errors.message}</span>
+                :null
+            }
         </div>
         <div>
             <label htmlFor="image">Image URL:</label>
             <input onChange={newChangeHandler} name="image" type="text" value={cartoon.image}/>
+            {
+                errors.image?
+                <span style={{color:"red"}}>{errors.image.message}</span>
+                :null
+            }
         </div>
         <div>
             <label htmlFor="rating">Rating</label>
             <input onChange={newChangeHandler} name="rating" type="number" value={cartoon.rating}/>
+            {
+                errors.rating?
+                <span style={{color:"red"}}>{errors.rating.message}</span>
+                :null
+            }
         </div>
         <div>
             <label htmlFor="suitableForKids">Kid Friendly:</label>
