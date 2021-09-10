@@ -18,17 +18,17 @@ const CreateCartoon = (props) => {
         suitableForKids:""
     })
 
-    const newChangeHandler = (e) => {
-        let newStateObject = {...newCartoon};
-        if(e.target.type === "checkbox"){
-            console.log(e.target.name, e.target.checked);
-            newStateObject[e.target.name] = e.target.checked;
-        }
-        else{
-            newStateObject[e.target.name] = e.target.value;
-        }
-        setNewCartoon(newStateObject);
-    }
+    // const newChangeHandler = (e) => {
+    //     let newStateObject = {...newCartoon};
+    //     if(e.target.type === "checkbox"){
+    //         console.log(e.target.name, e.target.checked);
+    //         newStateObject[e.target.name] = e.target.checked;
+    //     }
+    //     else{
+    //         newStateObject[e.target.name] = e.target.value;
+    //     }
+    //     setNewCartoon(newStateObject);
+    // }
 
     const newSubmitHandler = (e) => {
         e.preventDefault();
@@ -48,7 +48,7 @@ const CreateCartoon = (props) => {
     return (
         <div>
             <Form 
-            newChangeHandler={newChangeHandler}
+            // newChangeHandler={newChangeHandler}
             submitHandler={newSubmitHandler} 
             buttonText="Add A New Cartoon" 
             cartoon={newCartoon}

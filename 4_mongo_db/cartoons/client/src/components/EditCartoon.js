@@ -18,12 +18,14 @@ const EditCartoon = (props) => {
     useEffect(() => {
         axios.get(`http://localhost:8000/api/cartoons/${props.id}`)
             .then((res) => {
+                console.log(res);
+                console.log(res.data);
                 setUpdatedCartoon(res.data);
             })
             .catch((err) => {
                 console.log(err)
             })
-    })
+    }, [])
 
     const editCartoonHandler = (e) => {
         e.preventDefault();
