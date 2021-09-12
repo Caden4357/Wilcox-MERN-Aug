@@ -1,0 +1,22 @@
+key: [] = command for the terminal dont include the brackets just everything inside them 
+    {} = a file or peice of code that will be commonly used in all our apps but just maybe making minor changes again dont include the {}
+    ----- = what is being changed in the file 
+
+Create the project folder i.e for authors assign. I created an Authors folder then inside it im gonna create a folder named server this will handle all the backend bussiness in this server folder I'm gonna first make my server.js file I like to think of this as the starting point for our whole app, I'll come back to this file in a sec. next in the server folder create 4 new folders named controllers, models, routes, and config next in gitbash or terminal navigate to this server folder just cd into the folder dont go deeper than that run the following commands [npm init -y] this is gonna give us our package.json file At its simplest, a package.json file can be described as a manifest of your project that includes the packages and applications it depends on, information about its unique source control, and specific metadata like the project's name, description, and author. next command will be [npm i cors express mongoose] (npm i = shorthand for npm install) that should set us up with our dependices for a basic react app in the backend next in server.js
+{ const express = require("express");
+const cors = require('cors');
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors({
+	origin: "http://localhost:3000"
+}))
+
+
+require("./config/mongoose.config");
+
+require("./routes/authors.routes")(app);
+                  --------
+app.listen(8000, () => 
+console.log("You have successfully connected to port 8000")); } were gonna paste pretty much the same thing everytime just changing the require for the routes 

@@ -3,7 +3,7 @@ import { navigate } from '@reach/router';
 import Form from '../components/Form';
 import axios from 'axios';
 
-const CreateProduct = (props) => {
+const Update = (props) => {
     const {id} = props;
     const [ updatedProduct, setUpdatedProduct] = useState({
         title: "",
@@ -40,4 +40,4 @@ const CreateProduct = (props) => {
         </div>
     )
 }
-export default CreateProduct;       
+export default Update;       
