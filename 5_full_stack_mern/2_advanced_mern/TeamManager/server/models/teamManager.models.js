@@ -8,7 +8,34 @@ const PlayerSchema = new mongoose.Schema({
     },
     position: {
         type: String,
-    }
+    },
+    dayOneStatus: {
+        type: String,
+        default: "undecided",
+        enum: [
+            "playing",
+            "notPlaying",
+            "undecided"
+        ]
+    },
+    dayTwoStatus: {
+        type: String,
+        default: "undecided",
+        enum: [
+            "playing",
+            "notPlaying",
+            "undecided"
+        ]
+    },
+    dayThreeStatus: {
+        type: String,
+        default: "undecided",
+        enum: [
+            "playing",
+            "notPlaying",
+            "undecided"
+        ]
+    },
 }, {timestamps: true})
 
 const Player = mongoose.model("Player", PlayerSchema);

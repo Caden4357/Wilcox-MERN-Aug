@@ -5,7 +5,7 @@ import DeletePlayer from './DeletePlayer';
 
 const AllPlayers = (props) => {
 
-    const {playerList, setPlayerList} = props;
+    const [playerList, setPlayerList] = useState([]);
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/players/list`)
@@ -28,7 +28,7 @@ const AllPlayers = (props) => {
                     playerList?
                     playerList.map((player, idx) => (
                         <tr key={idx}>
-                            <td style={{border: "1px solid black"}}><Link to={`player/${player._id}`}>{player.name}</Link></td>
+                            <td style={{border: "1px solid black"}}>{player.name}</td>
                             <td style={{border: "1px solid black"}}>{player.position}</td>
                             <td style={{border: "1px solid black"}}><DeletePlayer playerList={playerList} setPlayerList={setPlayerList} id={player._id}/></td>
                         </tr>
