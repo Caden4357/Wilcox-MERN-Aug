@@ -7,7 +7,7 @@ const Header = (props) => {
         <div>
             <div style={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
                 <Link to="/status/game/1">Manage Player Status</Link>
-                <Link to="/players/list">Manage Players</Link>
+                <Link to="/">Manage Players</Link>
                 <h1>Players Database</h1>
                 <Link to="/new/player">Add Players</Link>
 

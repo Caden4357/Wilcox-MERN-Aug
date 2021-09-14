@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from '@reach/router';
 import axios from 'axios';
+import DeletePlayer from './DeletePlayer';
 
 const AllPlayers = (props) => {
 
@@ -29,7 +30,7 @@ const AllPlayers = (props) => {
                         <tr key={idx}>
                             <td style={{border: "1px solid black"}}><Link to={`player/${player._id}`}>{player.name}</Link></td>
                             <td style={{border: "1px solid black"}}>{player.position}</td>
-                            <td style={{border: "1px solid black"}}>Delete</td>
+                            <td style={{border: "1px solid black"}}><DeletePlayer playerList={playerList} setPlayerList={setPlayerList} id={player._id}/></td>
                         </tr>
                     ))
                     :null

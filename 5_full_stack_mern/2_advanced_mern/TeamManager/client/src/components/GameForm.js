@@ -3,10 +3,9 @@ import axios from 'axios'
 import {Link, navigate} from '@reach/router';
 
 const GameForm = (props) => {
+    const {id} = props;
     const [newGame, setNewGame] = useState(1);
-    const [playing, setPlaying] = useState(false);
-    const {player, setPlayer, playerList, setPlayerList} = props;
-    const [playingClass, setPlayingClass] = useState("notCompleted")
+    const {playerList, setPlayerList} = props;
     useEffect(() => {
         axios.get(`http://localhost:8000/api/players/list`)
             .then((res) => {
@@ -16,22 +15,23 @@ const GameForm = (props) => {
             .catch((err) => console.log(err))
     }, [])
 
-    const playingHandler = (idx) => {
-        setPlaying(!playing);
-        if(playingClass === "notCompleted"){
-            setPlayingClass("completed")
-        }
-        else{
-            setPlayingClass("notCompleted")
-        }
+    const handlePlaying = (idx) => {
+        const updatedStatus = playerList.map((player, index) => {
+            if (idx === index){
+                player.playing = !player.playing;
+            }
+            return player;
+        })
+        setPlayerList(updatedStatus);
     }
-
     return (
         <div>
             <h1>Player Status - Game {newGame}</h1>
-            <Link onClick={() => setNewGame(1)} to="/status/game/1" >Game 1</Link>
-            <Link onClick={() => setNewGame(2)} to="/status/game/2">Game 2</Link>
-            <Link onClick={() => setNewGame(3)} to="/status/game/3">Game 3</Link>
+            <div style={{display:"flex", justifyContent:"space-around"}}>
+                <Link onClick={() => setNewGame(1)} to="/status/game/1" >Game 1</Link>
+                <Link onClick={() => setNewGame(2)} to="/status/game/2">Game 2</Link>
+                <Link onClick={() => setNewGame(3)} to="/status/game/3">Game 3</Link>
+            </div>
             <div>
             <table style={{border: "1px solid black", width:"50%", marginLeft:"auto", marginRight: "auto", marginTop:"100px"}}>
                 <tr>
@@ -41,17 +41,31 @@ const GameForm = (props) => {
                 </tr>
                 {
                     playerList?
-                    playerList.map((player, idx) => (
-                        <tr key={idx}>
+                    playerList.map((player, idx) => {
+                        let playing = ""
+                        let notPlayingClass = ""
+                        let undecided = "undecided"
+                        if(undecided === "undecided" && player.playing == true){
+                            undecided = "" 
+                            notPlayingClass = ""
+                            playing = "completed"
+                        }
+                        if(player.playing == false){
+                            playing = ""
+                            notPlayingClass = "notCompleted"
+                            undecided = ""
+                        }
+                    return(
+                        <tr>
                             <td style={{border: "1px solid black"}}><Link to={`player/${player._id}`}>{player.name}</Link></td>
                             <td style={{border: "1px solid black"}}>{player.position}</td>
                             <td style={{border: "1px solid black"}}>
-                            <button className={playingClass} onClick={(e) => playingHandler(idx)}>Playing</button>
-                            <button>Not Playing</button>
-                            <button>Undecided</button>
+                            <button className={playing} key={idx} onClick={(e) => handlePlaying(idx)}>Playing</button>
+                            <button className={notPlayingClass} onClick={(e) => handlePlaying(idx)}>Not Playing</button>
+                            <button className={undecided} >Undecided</button>
                             </td>
                         </tr>
-                    ))
+                    )})
                     :null
                 }
             </table>
