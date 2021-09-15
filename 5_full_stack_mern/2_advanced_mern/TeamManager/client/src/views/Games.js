@@ -18,14 +18,16 @@ const Games = (props) => {
 
     return (
         <div>
-            {
-                day.map((day, idx) =>(
-                    idx === dayIndex?
-                    <h1>Player Status - {day.name}</h1>
-                    :null
-                ))
-            }
-            <div>
+            <div className="game">
+                {
+                    day.map((day, idx) =>(
+                        idx === dayIndex?
+                        <h1>Player Status - {day.name}</h1>
+                        :null
+                    ))
+                }
+            </div>
+            <div className="game">
                 {
                     day.map((item, idx) => (
                         idx === dayIndex?

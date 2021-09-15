@@ -4,14 +4,14 @@ import {Link, navigate} from '@reach/router';
 const Header = (props) => {
 
     return (
-        <div>
+        <div className="background-header">
+            <h1 className="header">Players Database</h1>
             <div style={{display:"flex", justifyContent:"space-around", alignItems:"center"}}>
-                <Link to="/status/games">Manage Player Status</Link>
-                <Link to="/">Manage Players</Link>
-                <h1>Players Database</h1>
-                <Link to="/new/player">Add Players</Link>
-
+                <Link className="header-links" to="/status/games">Manage Player Status</Link>
+                <Link className="header-links" to="/">Manage Players</Link>
+                <Link className="header-links" to="/new/player">Add Players</Link>
             </div>
+            <hr/>
         </div>
     )
 }

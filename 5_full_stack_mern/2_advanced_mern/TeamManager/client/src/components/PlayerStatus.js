@@ -7,13 +7,13 @@ const PlayerStatus = (props) => {
     const {player, day, dayIndex, setDayIndex} = props;
 
     const editStatus = (e) => {
-        player[day[dayIndex].date] = e.target.value;
         setDayIndex([dayIndex]);
+        player[day[dayIndex].date] = e.target.value;
         axios.put(`http://localhost:8000/api/player/edit/${player._id}`, player)
             .then((res) => {
                 console.log(e)
-                console.log(res.data);
-                console.log(e.target.value)
+                console.log(player);
+                console.log(dayIndex)
             })
             .catch((err) => console.log(err))
     }
@@ -21,17 +21,17 @@ const PlayerStatus = (props) => {
     return (
         <div>
             {
-                player[playerStatus[dayIndex]] === "playing"?
+                player[day[dayIndex].date] === "playing"?
                 <button onClick={editStatus} name="playing" value="playing" style={{backgroundColor: "green"}}>Playing</button>
                 :<button onClick={editStatus} name="playing" value="playing">Playing</button>
             }
                         {
-                player[playerStatus[dayIndex]] === "notPlaying"?
+                player[day[dayIndex].date] === "notPlaying"?
                 <button onClick={editStatus} name="notPlaying" value="notPlaying" style={{backgroundColor: "red"}}>Not Playing</button>
                 :<button onClick={editStatus} name="notPlaying" value="notPlaying">Not Playing</button>
             }
                         {
-                player[playerStatus[dayIndex]] === "undecided"?
+                player[day[dayIndex].date] === "undecided"?
                 <button onClick={editStatus} name="undecided" value="undecided" style={{backgroundColor: "yellow"}}>Undecided</button>
                 :<button onClick={editStatus} name="undecided" value="undecided">Undecided</button>
             }

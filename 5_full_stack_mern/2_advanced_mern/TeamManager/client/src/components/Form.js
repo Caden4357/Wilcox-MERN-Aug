@@ -11,7 +11,7 @@ const Form = (props) => {
     }
 
     return (
-        <div style={{border:"2px solid black"}}>
+        <div className="game">
             <h1>Add A Player</h1>
             <form onSubmit={submitHandler}>
                 <label>Name:</label>

@@ -22,7 +22,7 @@ function App() {
   const [pageStyle, setPageStyle] = useState(3);
 
   return (
-    <div className="App">
+    <div className="main">
       <Header/>
       <Router>
         <AllPlayers default/>
