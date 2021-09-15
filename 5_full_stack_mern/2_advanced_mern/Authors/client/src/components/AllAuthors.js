@@ -27,8 +27,8 @@ const AllAuthors = (props) => {
                 authorList?
                 authorList.map((author, idx) => (
                 <tr key={idx}>
-                    <td><Link to={`author/${author._id}`}>{author.name}</Link></td>
-                    <td>
+                    <td style={{border: "1px solid black"}}><Link to={`author/${author._id}`}>{author.name}</Link></td>
+                    <td style={{border: "1px solid black"}}>
                         <Link to={`author/edit/${author._id}`}>Edit</Link>
                         <DeleteAuthor authorList={authorList} setAuthorList={setAuthorList} id={author._id}/>
                     </td>
