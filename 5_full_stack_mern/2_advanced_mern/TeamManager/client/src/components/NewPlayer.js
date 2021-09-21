@@ -16,7 +16,6 @@ const NewPlayer = (props) => {
         newPlayer
         )
             .then((res) => {
-                console.log(res.data)
                 setNewPlayer({
                     name:"",
                     position: ""

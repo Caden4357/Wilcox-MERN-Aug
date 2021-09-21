@@ -14,6 +14,10 @@
       background-position: 0% 50%;
   }
 }
+* {
+  font-family: 'Lobster', cursive;
+  
+}
 .main{
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
@@ -24,8 +28,12 @@
   text-align: center;
 }
 .about-me{
+  display: inline-block;
   margin: 20px;
   padding: 20px;
   width: 400px;
   border: 2px solid rgb(31, 90, 158);
+}
+.idk{
+  display: inline-block;
 }

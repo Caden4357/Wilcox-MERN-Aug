@@ -2,11 +2,10 @@ import React, {useEffect, useState} from "react";
 import axios from 'axios';
 import {Link, navigate} from '@reach/router';
 import DeleteCartoon from "./DeleteCartoon";
-
 const AllCartoons = (props) => {
     const [cartoonList, setCartoonList] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:8000/api/cartoons')
+        axios.get('http://localhost:8000/api/allCartoons')
             .then((res) => {
                 console.log(res.data);
                 setCartoonList(res.data);

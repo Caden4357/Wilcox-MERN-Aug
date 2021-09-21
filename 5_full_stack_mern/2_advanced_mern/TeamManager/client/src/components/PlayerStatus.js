@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
-import {Link, navigate} from '@reach/router';
+
 
 const PlayerStatus = (props) => {
     const [playerStatus, setPlayerStatus] = useState(["dayOneStatus", "dayTwoStatus","dayThreeStatus"]);
@@ -11,9 +11,6 @@ const PlayerStatus = (props) => {
         player[day[dayIndex].date] = e.target.value;
         axios.put(`http://localhost:8000/api/player/edit/${player._id}`, player)
             .then((res) => {
-                console.log(e)
-                console.log(player);
-                console.log(dayIndex)
             })
             .catch((err) => console.log(err))
     }

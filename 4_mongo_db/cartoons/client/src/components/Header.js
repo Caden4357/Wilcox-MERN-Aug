@@ -8,7 +8,7 @@ const Header = (props) => {
             <h1>The Ultimate Cartoon Collection</h1>
             <ul style={{display:"flex", justifyContent:"space-around", listStyle:"none"}}>
             
-            <li><Link style={{textDecoration:"none", fontSize:"26px", color:"gray"}} to="/cartoons">All Cartoons</Link>
+            <li><Link style={{textDecoration:"none", fontSize:"26px", color:"gray"}} to="/allCartoons">All Cartoons</Link>
             </li>
 
             <li><Link style={{textDecoration:"none", fontSize:"26px", color:"gray"}} to="/cartoon/new"> New Cartoon</Link>

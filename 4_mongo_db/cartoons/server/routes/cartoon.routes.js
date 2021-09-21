@@ -4,7 +4,7 @@ const CartoonController = require("../controllers/cartoon.controller");
 // We import in server.js like this: require("./routes/cartoon.routes")(app);
 
 module.exports = (app) => {
-    app.get('/api/cartoons', CartoonController.findAllCartoons);
+    app.get('/api/allCartoons', CartoonController.findAllCartoons);
     //if data is being sent to my server to create something new, we use a POST request
     app.post('/api/cartoons', CartoonController.createNewCartoon);
     //Make sure this goes second (with the params) because it will search this one by default.

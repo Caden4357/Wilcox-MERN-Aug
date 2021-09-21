@@ -20,3 +20,23 @@ require("./routes/authors.routes")(app);
                   --------
 app.listen(8000, () => 
 console.log("You have successfully connected to port 8000")); } were gonna paste pretty much the same thing everytime just changing the require for the routes 
+in mongoose.config.js we will paste this 
+//require mongoose is the same as importing it 
+const mongoose = require("mongoose");
+const dbName = "players";
+                -------  -> this is what we change its the name of our database so change it to what your naming your db 
+
+//need to install software, walkthrough on the platform. Test that you're connected by mongo in terminal
+mongoose.connect("mongodb://localhost/" + dbName,{
+    //allows us to use the most updated way with Mongo (no depreciation)
+    useNewUrlParser: true,
+    //also allows us to use the lastest
+    useUnifiedTopology: true
+})
+    .then(()=>{
+        console.log(`You are connected to the ${dbName} database!`);
+    })
+    .catch((err)=>{
+        console.log(`There was an error connecting to the ${dbName} name :(`);
+        console.log(err);
+    })

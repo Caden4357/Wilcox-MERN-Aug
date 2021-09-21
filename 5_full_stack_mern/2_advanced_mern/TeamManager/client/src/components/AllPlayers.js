@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from '@reach/router';
 import axios from 'axios';
 import DeletePlayer from './DeletePlayer';
 
@@ -10,7 +9,6 @@ const AllPlayers = (props) => {
     useEffect(() => {
         axios.get(`http://localhost:8000/api/players/list`)
             .then((res) => {
-                console.log(res.data);
                 setPlayerList(res.data)
             })
             .catch((err) => console.log(err))

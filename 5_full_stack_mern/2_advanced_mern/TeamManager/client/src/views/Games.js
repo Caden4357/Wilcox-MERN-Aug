@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
-import {Link, navigate} from '@reach/router';
-import AllPlayers from '../components/AllPlayers';
 import PlayerStatus from '../components/PlayerStatus';
 
 const Games = (props) => {
@@ -10,7 +8,6 @@ const Games = (props) => {
     useEffect(() => {
         axios.get(`http://localhost:8000/api/players/list`)
             .then((res) => {
-                console.log(res.data);
                 setPlayerList(res.data)
             })
             .catch((err) => console.log(err))
@@ -20,23 +17,14 @@ const Games = (props) => {
         <div>
             <div className="game">
                 {
-                    day.map((day, idx) =>(
-                        idx === dayIndex?
-                        <h1>Player Status - {day.name}</h1>
-                        :null
-                    ))
-                }
-            </div>
-            <div className="game">
-                {
                     day.map((item, idx) => (
                         idx === dayIndex?
-                        <div onClick={(e) => {setDayIndex(idx)}} style={{textDecoration: "underline"}}>
-                            {item.name }
+                        <div onClick={(e) => {setDayIndex(idx)}} style={{color: "red"}}>
+                            <h1>{item.name }</h1>
                         </div>
                         :
                         <div onClick={(e) => {setDayIndex(idx)}}> 
-                            {item.name}
+                        <h1>{item.name}</h1>
                         </div>
                     ))
                 }
