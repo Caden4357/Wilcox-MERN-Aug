@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container'
 import { Link } from '@reach/router'
-import '../App.scss';
 const FrontPage = (props) => {
 
 

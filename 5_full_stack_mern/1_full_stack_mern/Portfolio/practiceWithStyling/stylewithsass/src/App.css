@@ -131,4 +131,46 @@
     transform: translateY(10px) translateX(0px);
   }
 }
+.card_background{
+  position: relative;
+}
+.card_background::after{
+  content: "";
+  position: absolute;
+  left: -2.5%;
+  top: -2.5%;
+  height: 105%;
+  width: 105%;
+  background-color: aqua;
+  z-index: -1;
+  filter: blur(1em);
+  background: linear-gradient(60deg, #f75933, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background-position: 0 0;
+  background-size: 300%;
+  transition: all 1s;
+  animation: animated-gradient 3s ease alternate infinite;
+  -webkit-animation: animated-gradient 3s ease alternate infinite;
+}
+@keyframes animated-gradient{
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 50% 50%;
+  }
+  100%{
+    background-position: 100% 100%;
+  }
+}
 
+@-webkit-keyframes animated-gradient{
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 50% 50%;
+  }
+  100%{
+    background-position: 100% 100%;
+  }
+}

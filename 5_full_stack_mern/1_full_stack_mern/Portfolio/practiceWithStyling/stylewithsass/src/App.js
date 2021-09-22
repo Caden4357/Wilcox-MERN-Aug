@@ -1,7 +1,6 @@
 import FrontPage from './components/FrontPage';
 import { Router } from '@reach/router';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.scss';
 import './App.css';
 import PageTwo from './components/PageTwo';
 
