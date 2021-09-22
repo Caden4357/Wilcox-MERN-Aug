@@ -51,8 +51,11 @@ module.exports = {
                             }
                         )
                         .json({
+                            //this is what information were getting back when we successfully log in if we also wanted access to the email we would just add that in under userLoggedIn 
+                            // it could look like so userEmail: userRecord.email
                             message: "Successfully logged in",
-                            userLoggedIn: userRecord.username
+                            userLoggedIn: userRecord.username,
+                            userEmail: userRecord.email
                         })
                         }
                         else{

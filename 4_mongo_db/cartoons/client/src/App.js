@@ -12,7 +12,7 @@ function App() {
       <Header/>
       <Router>
         <LogAndReg default /> 
-        <AllCartoons path="/allCartoons" />
+        <AllCartoons path="/allCartoons"/>
         <CreateCartoon path="/cartoon/new"/>
         <OneCartoon path="/cartoon/:id"/>
         <EditCartoon path="/cartoon/edit/:id"/>

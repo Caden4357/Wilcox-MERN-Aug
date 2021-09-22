@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
-import {Link, navigate} from '@reach/router';
+import {Link} from '@reach/router';
 import DeleteCartoon from "./DeleteCartoon";
 const AllCartoons = (props) => {
     const [cartoonList, setCartoonList] = useState([]);
@@ -20,7 +20,7 @@ const AllCartoons = (props) => {
             <div>
                 {
                     cartoonList.map((cartoon, idx) => (
-                        <div style={{border:"4px solid red", padding:"50px", borderRadius:"100px"}} key={idx }>
+                        <div className="listItem" key={idx }>
                             <Link to={`/cartoon/${cartoon._id}`}>
                             <p>{cartoon.name}</p>
                             <img src={cartoon.image} alt="cartoon" style={{width:"200px", height:"200px"}}/>

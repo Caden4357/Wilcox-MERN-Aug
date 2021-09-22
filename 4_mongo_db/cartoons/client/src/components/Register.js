@@ -50,7 +50,7 @@ const Register = (props) => {
     }
     return (
         <div>
-            <h2>Register</h2>
+            <h1>Register</h1>
             {
                 confirmReg?
                 <h4 style={{color: "green"}}>{confirmReg}</h4>

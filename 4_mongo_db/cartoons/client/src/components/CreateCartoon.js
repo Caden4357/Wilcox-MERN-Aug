@@ -15,7 +15,7 @@ const CreateCartoon = (props) => {
         image:"",
         genre:"",
         rating:"",
-        suitableForKids:""
+        suitableForKids:true
     })
 
     // const newChangeHandler = (e) => {
@@ -33,17 +33,26 @@ const CreateCartoon = (props) => {
     const newSubmitHandler = (e) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/cartoons',
-        newCartoon
+        newCartoon,
+        {
+            withCredentials:true
+        }
         )
         .then((res) =>{
             console.log(res);
             console.log(res.data);
-            navigate('/cartoons')
+            navigate('/allCartoons')
         })
         .catch((err) =>{
             console.log(err);
             console.log(err.response.data.errors);
-            setErrors(err.response.data.errors)
+            if(err.response.status === 401){
+                alert("your not logged in!")
+                navigate('/')
+            }
+            else if(err.response.data.errors){
+                setErrors(err.response.data.errors)
+            }
         })
     }
 
