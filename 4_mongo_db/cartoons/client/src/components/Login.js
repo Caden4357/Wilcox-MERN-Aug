@@ -28,14 +28,14 @@ const login = event => {
     })
     .catch(err => {
         console.log(err.response);
-        // setErrorMessage(err.response.data.message);
+        setErrorMessage(err.response.data.message);
     });
 };
 
 return (
     <div>
     <h1>Login</h1>
-    <p className="error-text">{errorMessage ? errorMessage : ""}</p>
+    <p style={{textAlign: "center", color:"red"}}>{errorMessage ? errorMessage : ""}</p>
     <form onSubmit={login}>
         <div>
             <label>Email</label>

@@ -1,5 +1,5 @@
 const Cartoon = require("../models/cartoon.model");
-
+const jwt = require('jsonwebtoken');
 
 module.exports = {
 
@@ -11,6 +11,7 @@ findAllCartoons: (req,res)=>{
     console.log("All the cartoons!");
     //use the model yto connect to the collection and find/return all documents
     Cartoon.find({}) //find all documents. don't filter anything out
+    .populate('user_id', 'username')
     .then((allCartoons) => {
         res.json(allCartoons);
     })
@@ -31,7 +32,11 @@ findOneCartoon: (req, res)=>{
 },
 
 createNewCartoon: (req, res)=>{
-    Cartoon.create(req.body)
+    const cartoon = new Cartoon(req.body);
+    const decodedJwt = jwt.decode(req.cookies.usertoken, {complete: true});
+    cartoon.user_id = decodedJwt.payload.user_id;
+    cartoon.createdByUserName = decodedJwt.payload.username;
+    Cartoon.create(cartoon)
     .then((newCartoon)=> res.json(newCartoon))
     .catch((err)=> {
         console.log("Create cartoon failed");

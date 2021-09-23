@@ -37,7 +37,7 @@ const EditCartoon = (props) => {
         .then((res) =>{
             console.log(res);
             console.log(res.data);
-            navigate('/cartoons')
+            navigate('/allCartoons')
         })
         .catch((err) =>{
             console.log(err)

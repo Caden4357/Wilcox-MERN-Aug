@@ -28,6 +28,9 @@ const AllCartoons = (props) => {
                             <Link to={`/cartoon/edit/${cartoon._id}`}>
                                 Edit
                             </Link>
+                            <Link to={`/user/profile/${cartoon.user_id._id}`}>
+                                <p>Added By: {cartoon.user_id?.username}</p>
+                            </Link>
                             <DeleteCartoon cartoonList={cartoonList} setCartoonList={setCartoonList} id={cartoon._id}/>
                         </div> 
                     ))

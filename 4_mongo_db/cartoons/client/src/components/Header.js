@@ -27,7 +27,7 @@ const Header = (props) => {
                 <li><Link to="/allCartoons">All Cartoons</Link></li>
 
                 <li><Link to="/cartoon/new"> New Cartoon</Link></li>
-                <li><button onClick={logout}>Logout</button></li>
+                <li><button onClick={logout}>Logout / Home</button></li>
             </ul>
         </header>
     )

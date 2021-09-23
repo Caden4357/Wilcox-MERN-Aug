@@ -55,8 +55,18 @@ const CartoonSchema = new mongoose.Schema({
     },
     suitableForKids:{
         type: Boolean
-    } 
+    }, 
 
+    user_id: {
+
+        type:mongoose.Schema.Types.ObjectId,
+        
+        //needs to match we called our collection its case sensitive 
+        ref:"User"
+    },
+    createdByUserName: {
+        type: String
+    }
 
 }, {timestamps:true})
     //timestamps automatically create "createdAt" and"updatedAt" date and time info for each document

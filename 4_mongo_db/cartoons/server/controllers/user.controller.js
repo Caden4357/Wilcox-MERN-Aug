@@ -42,7 +42,8 @@ module.exports = {
                         res.cookie("usertoken", 
                             jwt.sign({
                                 user_id: userRecord._id,
-                                email: userRecord.email
+                                email: userRecord.email,
+                                username: userRecord.username
                             },
                             process.env.JWT_SECRET),
                             {
@@ -77,6 +78,18 @@ module.exports = {
         res.clearCookie('usertoken');
         res.json({
             message: "you have logged out successfully"
+        })
+    },
+
+    getOneUser: (req, res)=> {
+        User.findOne({_id: req.params.id})
+        .then((oneUser)=> {
+            console.log(oneUser)
+            console.log(res.data)
+            res.joson(oneUser);
+        })
+        .catch((err) => {
+            res.status(400).json(err)
         })
     }
 }
