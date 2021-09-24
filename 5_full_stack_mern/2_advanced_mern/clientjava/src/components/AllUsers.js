@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from '@reach/router';
 import axios from 'axios';
+import Delete from './Delete';
+
 
 const AllUsers = (props) =>{
     const [personList, setPersonList] = useState([]);
@@ -15,6 +17,12 @@ const AllUsers = (props) =>{
         .catch((err) => console.log(err))
     }, [])
 
+    
+    const deleteFilter = (id) => {
+        let newList = personList.filter((person) => person.id !== id);
+        setPersonList(newList);
+    }
+
 
     return (
         <div>
@@ -24,6 +32,8 @@ const AllUsers = (props) =>{
                 <div key={idx}>
                     <p>Name: {person.name}</p>
                     <p>Age: {person.age}</p>
+                    <Link to={`/editPerson/${person.id}`}>Edit</Link>
+                    <Delete personList={personList} setPersonList={setPersonList} id={person.id} deleteFilter={deleteFilter}/>
                 </div>
                 ))
             }
