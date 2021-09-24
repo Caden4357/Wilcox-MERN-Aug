@@ -24,7 +24,6 @@ class Main   extends Component {
                     <p>Age: {age}</p>
                     <button onClick={() => this.setState({age: this.state.age + 1}) }>Birthday Button</button>
                     <hr/>
-
                 </div>
             )
         }
