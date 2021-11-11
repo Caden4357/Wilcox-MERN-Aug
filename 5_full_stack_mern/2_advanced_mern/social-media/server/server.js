@@ -16,7 +16,7 @@ app.use(cookieParser());
 require("./config/mongoose.config");
 
 // require("./routes/cartoon.routes")(app);
-// require('./routes/user.routes')(app)
+require('./routes/user.routes')(app)
 
 app.listen(process.env.MY_PORT, () => 
 console.log(`You have successfully connected to port ${process.env.MY_PORT}`));
