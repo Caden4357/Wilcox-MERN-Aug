@@ -14,13 +14,14 @@ const AllCartoons = (props) => {
                 console.log(err);
             })
     }, [])
+
     return (
         <div>
             <h1>All Cartoons</h1>
             <div>
                 {
                     cartoonList.map((cartoon, idx) => (
-                        <div className="listItem" key={idx }>
+                        <div className="listItem" key={idx}>
                             <Link to={`/cartoon/${cartoon._id}`}>
                             <p>{cartoon.name}</p>
                             <img src={cartoon.image} alt="cartoon" style={{width:"200px", height:"200px"}}/>
@@ -28,9 +29,9 @@ const AllCartoons = (props) => {
                             <Link to={`/cartoon/edit/${cartoon._id}`}>
                                 Edit
                             </Link>
-                            <Link to={`/user/profile/${cartoon.user_id._id}`}>
+                            {/* <Link to={`/user/profile/${cartoon.user_id._id}`}>
                                 <p>Added By: {cartoon.user_id?.username}</p>
-                            </Link>
+                            </Link> */}
                             <DeleteCartoon cartoonList={cartoonList} setCartoonList={setCartoonList} id={cartoon._id}/>
                         </div> 
                     ))

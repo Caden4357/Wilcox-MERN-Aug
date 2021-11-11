@@ -139,7 +139,7 @@ const binarySearch = (arr, item) => {
         }
     }
 }
-console.log(binarySearch([1,3,5,7,9,12,15,19,99,2000], 3));
+console.log(binarySearch([1,3,5,7,9,12,15,19,99,2000], 8));
 
 
                         // 12:01:00AM -> 00:01:00
@@ -176,4 +176,4 @@ const subsequence = (arr, sequence) => {
         }
     }return seqIdx === sequence.length
 }
-console.log(subsequence([5,1,22,25,6,-1,8.10], [1,6,-1,10]))
+console.log(subsequence([5,1,22,25,6,-1,8.10], [1,22,25,6]))

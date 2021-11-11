@@ -5,8 +5,8 @@ const Main = () => {
     return(
         <div className="App">
             <div>
-            <h1>Hello Dojo</h1>
-            <h3>Things I need to do:</h3>
+                <h1>Hello Dojo</h1>
+                <h3>Things I need to do:</h3>
             </div>
         <div>
             <ul>

@@ -1,0 +1,32 @@
+Updating your code and refreshing your installation:
+If you find a bug and want to fix it...or just add some fun extras so you can show this off to friends, do the following:
+
+Update your code and test it on your local computer.
+Stage and commit your code to your git repository using the command line or your VSCode editor's tools
+Push the changes up to github: git push
+Connect via SSH to your instance as described above
+
+Change directory in to your project folder: cd ~/MERN-Deployment
+Stop the PM2 process daemon: pm2 stop all
+This should stop the express/node server
+Pull the recent changes from github using: git pull
+Change directory in to the client folder: cd client
+Rebuild the React App: npm run build
+Stop the currently running nginx process:  
+sudo service nginx stop
+sudo service nginx status <-- verify that it is "inactive"
+Replace the running React App and remember to update the URLs using grep and sed:
+sudo rm -rf /var/www/html
+sudo mv build /var/www/html
+sudo grep -rl localhost /var/www/html | xargs sed -i 's/http:\/\/localhost:8000//g'
+Restart the PM2 process: pm2 restart all
+This should restart your express/node server
+Restart the React app
+sudo service nginx restart
+sudo service nginx status <-- verify that it is "active (running)"
+To view the server logs while using PM2, run the following command:
+
+sudo pm2 logs
+To exit viewing the logs use: 
+
+CTRL + c

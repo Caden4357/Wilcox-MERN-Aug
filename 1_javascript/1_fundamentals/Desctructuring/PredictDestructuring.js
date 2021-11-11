@@ -1,6 +1,6 @@
 //This code will output Telsa And Mercedes 
 const cars = ['Tesla', 'Mercedes', 'Honda']
-const [ randomCar ] = cars
+const [ randomCar,car2 ] = cars
 const [ ,otherRandomCar ] = cars
 //Predict the output
 console.log(randomCar)
@@ -38,27 +38,28 @@ const [,,,,,,,,third] = numbers;
 //Predict the output
 console.log(first == second);
 console.log(first == third);
-console.log(first);
+// console.log(first);
+// console.log(second);
+// console.log(third);
 
 //this will output value then the whole array then 1 then 5 
 const lastTest = {
     key: 'value',
-    secondKey: [1, 5, 1, 8, 3, 3]
+    arr: [1, 5,"caden", 1, 8, 3, 3]
 }
 const { key } = lastTest;
-const { secondKey } = lastTest;
-const [ ,willThisWork] = secondKey;
+const { arr } = lastTest;
+const [,,willThisWork] = arr;
 //Predict the output
 console.log(key);
-console.log(secondKey);
-console.log(secondKey[0]);
+console.log(arr);
+console.log(arr[0]);
 console.log(willThisWork);
 
 
 function smallest( sortedArray ) {
     sortedArray = [2, 5, 6, 12, 14, 28, 37, 41, 44, 45]
         return sortedArray[4];
-    
     }
 
 console.log(smallest());
