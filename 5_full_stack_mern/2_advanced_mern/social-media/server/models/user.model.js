@@ -15,6 +15,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "username is required"]
     },
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    },
     email:{
         type: String,
         required: [true, "username is required"]
