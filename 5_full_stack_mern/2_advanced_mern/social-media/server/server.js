@@ -12,8 +12,6 @@ app.use(cors({
 }))
 
 app.use(cookieParser());
-// Set EJS as templating engine 
-app.set("view engine", "ejs");
 
 require("./config/mongoose.config");
 

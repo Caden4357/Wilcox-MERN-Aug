@@ -3,16 +3,25 @@ const bcrypt = require('bcrypt');
 var multer = require('multer');
 const jwt = require('jsonwebtoken');
 
-const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null, '../client/public/uploads/');
-    },
-    filename: (req, file, callback) => {
-        callback(null, file.originalname);
-    }
-})
+// const storage = multer.diskStorage({
+//     destination: (req, file, callback) => {
+//         callback(null, '../client/public/uploads/');
+//     },
+//     filename: (req, file, callback) => {
+//         callback(null, file.originalname);
+//     }
+// })
 
-const upload = multer({storage: storage});
+// const fileFilter = (req, file, cb) => {
+//     const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+//     if(allowedFileTypes.includes(file.mimetype)) {
+//         cb(null, true);
+//     } else {
+//         cb(null, false);
+//     }
+// }
+
+// const upload = multer({storage: storage, fileFilter});
 
 module.exports = {
 
@@ -21,6 +30,7 @@ module.exports = {
         console.log(req.body)
         //were gonna use the req data or request data and the User model constructor to create a user object 
         const user = new User(req.body);
+        console.log(user)
         //info is already in the instance of THIS object we dont need to pass in anything 
         //save is an instance method doesnt require anything passed in 
         //create is static and takes the object as the parameter

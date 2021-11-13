@@ -62,7 +62,7 @@ const Register = (props) => {
                 <h4 style={{color: "green"}}>{confirmReg}</h4>
                 :null
             }
-            <form onSubmit={register}>
+            <form onSubmit={register} encType='multipart/form-data'>
             <div>
                     <label>First Name:</label>
                     {
@@ -92,7 +92,9 @@ const Register = (props) => {
                 </div>
                 <div>
                     <p>Upload Image</p>
-                    <input type="file" onChange={(e) => handleChange(e)}/>
+                    <input type="file" 
+                    accept=".png, .jpg, .jpeg"
+                    name="img"/>
                 </div>
                 <div>
                     <label>Email:</label>
