@@ -1,7 +1,18 @@
 const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
+var multer = require('multer');
 const jwt = require('jsonwebtoken');
 
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, '../client/public/uploads/');
+    },
+    filename: (req, file, callback) => {
+        callback(null, file.originalname);
+    }
+})
+
+const upload = multer({storage: storage});
 
 module.exports = {
 
