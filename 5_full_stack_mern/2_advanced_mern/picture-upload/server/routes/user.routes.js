@@ -1,45 +1,10 @@
-const router = require('express').Router();
-const multer = require('multer');
-const { v4: uuidv4 } = require('uuid');
-let path = require('path');
-let User = require('../models/user.models');
+const express = require('express');
+const {upload} = require('../helpers/filehelper');
+const {singleFileUpload} = require('../controllers/fileUploadController');
+const router = express.Router();
 
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, 'images');
-    },
-    filename: function(req, file, cb) {   
-        cb(null, uuidv4() + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
+router.post('/singleFile', upload.single('file'), )
 
-const fileFilter = (req, file, cb) => {
-    const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-    if(allowedFileTypes.includes(file.mimetype)) {
-        cb(null, true);
-    } else {
-        cb(null, false);
-    }
+module.exports = {
+    routes: router
 }
-
-let upload = multer({ storage, fileFilter });
-
-router.route('/add').post(upload.single('photo'), (req, res) => {
-    const name = req.body.name;
-    const birthdate = req.body.birthdate;
-    const photo = req.file.filename;
-
-    const newUserData = {
-        name,
-        birthdate,
-        photo
-    }
-
-    const newUser = new User(newUserData);
-
-    newUser.save()
-        .then(() => res.json('User Added'))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
-
-module.exports = router;

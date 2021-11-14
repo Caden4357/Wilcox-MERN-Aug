@@ -7,7 +7,7 @@ mongoose.connect("mongodb://localhost/" + dbName,{
     //allows us to use the most updated way with Mongo (no depreciation)
     useNewUrlParser: true,
     //also allows us to use the lastest
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 })
     .then(()=>{
         console.log(`You are connected to the ${dbName} database!`);
