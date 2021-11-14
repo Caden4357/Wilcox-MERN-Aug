@@ -19,7 +19,13 @@ const User = () => {
 
         axios.post('http://localhost:8000/users/add/', formData)
             .then(res => {
-                console.log(res);
+                console.log(e.target.files);
+                
+                setNewUser({
+                    name: '',
+                    birthdate: '',
+                    photo: '',
+                })
             })
             .catch(err => {
                 console.log(err);
@@ -31,6 +37,7 @@ const User = () => {
     }
 
     const handlePhoto = (e) => {
+        console.log(e.target.files[0])
         setNewUser({...newUser, photo: e.target.files[0]});
     }
 

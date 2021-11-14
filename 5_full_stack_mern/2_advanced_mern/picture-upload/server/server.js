@@ -11,9 +11,9 @@ const port = process.env.MY_PORT ;
 
 app.use(cors());
 app.use(express.json());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 require("./config/mongoose.config");
-app.use('/api', fileRoutes.routes)
+const userRouter = require('./routes/user.routes');
+app.use('/users', userRouter);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

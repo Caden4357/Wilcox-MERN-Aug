@@ -1,6 +1,3 @@
-
-
-
 const singeFileUpload = async (req, res, next) => {
     try{
         const file = req.file;
