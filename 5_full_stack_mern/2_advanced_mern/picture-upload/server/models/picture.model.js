@@ -10,7 +10,7 @@ const userSchema = new Schema({
     }, 
 
     photo: {
-        type: String
+        type:String
     },
 
     birthdate: {

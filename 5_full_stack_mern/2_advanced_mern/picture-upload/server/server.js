@@ -1,20 +1,24 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const fileRoutes = require('./routes/user.routes')
-const bodyParser = require('body-parser')
-
-const app = express();
 require('dotenv').config();
+const express = require("express");
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const fileUpload = require('express-fileupload');
+const app = express();
 
-const port = process.env.MY_PORT ;
-
-app.use(cors());
 app.use(express.json());
-require("./config/mongoose.config");
-const userRouter = require('./routes/user.routes');
-app.use('/users', userRouter);
+app.use(express.urlencoded({ extended: true }));
+app.use(cors({
+	credentials: true,
+	origin: "http://localhost:3000"
+}))
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+app.use(cookieParser());
+app.use(fileUpload());
+
+require("./config/mongoose.config");
+
+// require("./routes/cartoon.routes")(app);
+require('./routes/user.routes')(app)
+
+app.listen(process.env.MY_PORT, () => 
+console.log(`You have successfully connected to port ${process.env.MY_PORT}`));

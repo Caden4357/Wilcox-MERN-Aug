@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import axios from 'axios';
 
 const User = () => {
+    const [userList, setUserList] = useState([]);
     const [newUser, setNewUser] = useState(
         {
             name: '',
@@ -9,6 +10,16 @@ const User = () => {
             photo: '',
         }
     );
+    useEffect(() => {
+        axios.get('http://localhost:8000/')
+        .then((res) => {
+            console.log(res.data);
+            setUserList(res.data)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,16 +27,11 @@ const User = () => {
         formData.append('photo', newUser.photo);
         formData.append('birthdate', newUser.birthdate);
         formData.append('name', newUser.name);
-
-        axios.post('http://localhost:8000/users/add/', formData)
+        axios.post('http://localhost:8000/users/add/', formData,)
             .then(res => {
-                console.log(e.target.files);
-                
-                setNewUser({
-                    name: '',
-                    birthdate: '',
-                    photo: '',
-                })
+                console.log(newUser.photo);
+                // console.log(res.data);
+
             })
             .catch(err => {
                 console.log(err);
@@ -37,11 +43,12 @@ const User = () => {
     }
 
     const handlePhoto = (e) => {
-        console.log(e.target.files[0])
+        console.log(e.target.files);
         setNewUser({...newUser, photo: e.target.files[0]});
     }
 
     return (
+        <div>
         <form onSubmit={handleSubmit} encType='multipart/form-data'>
             <input 
                 type="file" 
@@ -69,6 +76,15 @@ const User = () => {
                 type="submit"
             />
         </form>
+        {
+            userList.map((user, idx) => (
+                <div>
+                    <p>{user.name}</p>
+                    <img src={user.photo} alt="user-photo" style={{width:"200px", height:"200px"}}/>
+                </div>
+            ))
+        }
+        </div>
     );
 }
 
