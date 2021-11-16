@@ -14,18 +14,15 @@ const fileStorageEngine = multer.diskStorage({
 const upload = multer({storage: fileStorageEngine});
 module.exports = (app) => {
     app.post('/single', upload.single('image'), (req, res) => {
-        // console.log(req.file.path);
-        // console.log(req.file);
-        // const title = req.body.title;
-        // const img = req.file.path;
-        // const newImage = {
-        //     title,
-        //     img
-        // }
-        const newImg = new Image();
-        newImg.title = req.body.title;
-        newImg.img.data = fs.readFileSync(req.file.path);
-        newImg.img.contentType = "images/png";
+        console.log(req.file.path);
+        console.log(req.file);
+        const title = req.body.title;
+        const img = req.file;
+        const newImage = {
+            title,
+            img
+        }
+        const newImg = new Image(newImage);
         newImg.save()
             // .then(() => res.json("successfull upload"))
             // .catch(err => res.status(400).json('Error: ' + err));
