@@ -1,9 +1,13 @@
 require('dotenv').config();
 const express = require("express");
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 const app = express();
-
+app.use('/image', express.static('public'));
+app.use(fileUpload({
+	createParentPath: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({

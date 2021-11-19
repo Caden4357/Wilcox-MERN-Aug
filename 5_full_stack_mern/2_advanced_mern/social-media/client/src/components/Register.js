@@ -10,7 +10,6 @@ const Register = (props) => {
         firstName: "",
         lastName: "",
         username: "",
-        img: "",
         email: "",
         password: "",
         confirmPassword: ""
@@ -89,12 +88,6 @@ const Register = (props) => {
                         :null
                     }
                     <input type="text" name="username" value={user.username} onChange={(e) => handleChange(e)}/>
-                </div>
-                <div>
-                    <p>Upload Image</p>
-                    <input type="file" 
-                    accept=".png, .jpg, .jpeg"
-                    name="img"/>
                 </div>
                 <div>
                     <label>Email:</label>
