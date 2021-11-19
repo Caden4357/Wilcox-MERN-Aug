@@ -1,13 +1,21 @@
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require("cookie-parser");
+const fileUpload = require('express-fileupload');
 
 const app = express();
+app.use('/images', express.static('images')); //to access the files in public folder
+app.use(fileUpload({
+	createParentPath: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
 	credentials: true,
 	origin: "http://localhost:3000"
 }))
+app.use(cookieParser());
 
 require("./config/mongoose.config");
 
