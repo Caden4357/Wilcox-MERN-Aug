@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Login default/>
+        <Register default/>
         <Dashboard path="/dashboard"/>
       </Router>
     </div>

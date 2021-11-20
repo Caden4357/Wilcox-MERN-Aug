@@ -16,11 +16,13 @@ const UserSchema = new mongoose.Schema({
     },
     username:{
         type: String,
-        required: [true, "username is required"]
+        required: [true, "username is required"],
+        unique: true
     },
     email:{
         type: String,
-        required: [true, "username is required"]
+        required: [true, "username is required"],
+        unique: true
     },
     password:{
         type: String,
@@ -30,6 +32,18 @@ const UserSchema = new mongoose.Schema({
 }, {timestamps: true})
 
     
+UserSchema.path('email').validate( async (email) => {
+    const emailCount = await mongoose.models.User.countDocuments({email})
+    return !emailCount
+}, 'Email already exits')
+
+    
+UserSchema.path('username').validate( async (username) => {
+    const usernameCount = await mongoose.models.User.countDocuments({username})
+    return !usernameCount
+}, 'Username already exits')
+
+
 UserSchema.virtual('confirmPassword')
     .get(() => this._confirmPassword)
     .set((value) => this._confirmPassword = value)

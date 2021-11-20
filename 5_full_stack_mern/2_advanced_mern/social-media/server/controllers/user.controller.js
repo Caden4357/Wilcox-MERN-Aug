@@ -10,6 +10,7 @@ module.exports = {
         //were gonna use the req data or request data and the User model constructor to create a user object 
         const user = new User(req.body);
         console.log(user)
+        console.log(req.body.email)
         //info is already in the instance of THIS object we dont need to pass in anything 
         //save is an instance method doesnt require anything passed in 
         //create is static and takes the object as the parameter
