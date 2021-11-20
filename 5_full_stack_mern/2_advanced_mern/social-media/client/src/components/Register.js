@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from 'axios';
 
+
 const Register = (props) => {
     const [confirmReg, setConfirmReg] = useState("");
     const [errors, setErrors] = useState({});

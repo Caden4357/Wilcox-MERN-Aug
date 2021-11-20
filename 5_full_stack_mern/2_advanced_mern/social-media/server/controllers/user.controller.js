@@ -2,26 +2,6 @@ const User = require('../models/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// const storage = multer.diskStorage({
-//     destination: (req, file, callback) => {
-//         callback(null, '../client/public/uploads/');
-//     },
-//     filename: (req, file, callback) => {
-//         callback(null, file.originalname);
-//     }
-// })
-
-// const fileFilter = (req, file, cb) => {
-//     const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-//     if(allowedFileTypes.includes(file.mimetype)) {
-//         cb(null, true);
-//     } else {
-//         cb(null, false);
-//     }
-// }
-
-// const upload = multer({storage: storage, fileFilter});
-
 module.exports = {
 
     register : (req, res) => {
@@ -154,10 +134,21 @@ module.exports = {
         .then((oneUser)=> {
             console.log(oneUser)
             console.log(res.data)
-            res.joson(oneUser);
+            res.json(oneUser);
         })
         .catch((err) => {
             res.status(400).json(err)
         })
-    }
+    },
+    viewAll: (req, res) =>{
+        User.find({})
+            .then((allUsers)=>{
+                console.log(allUsers);
+                res.json(allUsers);
+            })
+            .catch((err)=>{
+                console.log("error in ViewAll");
+                res.status(400).json(err);
+            })
+    },
 }
