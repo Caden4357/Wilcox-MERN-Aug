@@ -3,12 +3,13 @@ import { Router } from '@reach/router';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Register from './components/Register';
+import LogAndReg from './views/LogAndReg';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Register default/>
+        <LogAndReg default/>
         <Dashboard path="/dashboard"/>
       </Router>
     </div>

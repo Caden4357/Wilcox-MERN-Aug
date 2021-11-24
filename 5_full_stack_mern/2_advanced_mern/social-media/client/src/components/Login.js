@@ -33,24 +33,24 @@ const login = event => {
 };
 
 return (
-    <div>
-    <h1>Login</h1>
-    <p style={{textAlign: "center", color:"red"}}>{errorMessage ? errorMessage : ""}</p>
-    <form onSubmit={login}>
-        <div>
-            <label>Email</label>
-            <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        </div>
-        <div>
-            <button 
-                type="submit">Sign In
-            </button>
-        </div>
-    </form>
+    <div className="container">
+        <h1>Login</h1>
+        <p style={{textAlign: "center", color:"red"}}>{errorMessage ? errorMessage : ""}</p>
+        <form onSubmit={login}>
+            <div>
+                <label>Email</label>
+                <input type="text" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            </div>
+            <div>
+                <button 
+                    type="submit">Sign In
+                </button>
+            </div>
+        </form>
     </div>
 );
 };

@@ -14,6 +14,22 @@ const Dashboard = (props) => {
                 console.log(err)
             })
     }, [])
+    
+    const logout = (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:8000/api/user/logout", { 
+            // no body required for this request
+        }, {
+            withCredentials: true,
+        })
+        .then((res) => {
+            console.log(res.data);
+            navigate("/login");
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
 
     return (
         <div>
@@ -23,7 +39,7 @@ const Dashboard = (props) => {
                     userList.map((user, idx) => (
                         <div>
                             <p>User {user.firstName}</p>
-                            <img className="w-54 h-36 mx-auto my-2 rounded-3xl"
+                            <img className="profile-pic"
                             src={`http://localhost:8000/image/${user.profilePicture}`} 
                             alt="Add a profile picture!"/>
 
@@ -31,6 +47,7 @@ const Dashboard = (props) => {
                     ))
                 }
             </div>
+            <button onClick={logout}>Logout / Home</button>
         </div>
     )
 }
