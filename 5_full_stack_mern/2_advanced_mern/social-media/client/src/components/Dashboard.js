@@ -4,6 +4,18 @@ import { Link, navigate } from '@reach/router';
 
 const Dashboard = (props) => {
     const [userList, setUserList] = useState([]);
+    const [currentUser, setCurrentUser] = useState([]);
+    const {currentId, setCurrentId} = props;
+    useEffect(() => {
+        axios.get(`http://localhost:8000/currentUser/${currentId}`)
+        .then((res) => {
+            console.log(res.data);
+            setCurrentUser(res.data);
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }, [])
     useEffect(() => {
         axios.get('http://localhost:8000/dashboard')
             .then((res) => {
@@ -48,6 +60,7 @@ const Dashboard = (props) => {
                     ))
                 }
             </div>
+            <h1>{currentUser.username}</h1>
             <button onClick={logout}>Logout / Home</button>
         </div>
     )

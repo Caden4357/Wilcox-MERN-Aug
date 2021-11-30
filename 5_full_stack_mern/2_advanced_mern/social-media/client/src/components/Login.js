@@ -24,7 +24,7 @@ const login = event => {
         console.log(res.cookie, "cookie");
         console.log(res, "res");
         console.log(res.data, 'is res data!');
-        navigate("/dashboard");
+        navigate(`/dashboard/${res.data.userId}`);
     })
     .catch(err => {
         console.log(err.response);

@@ -57,7 +57,8 @@ module.exports = {
                             // it could look like so userEmail: userRecord.email
                             message: "Successfully logged in",
                             userLoggedIn: userRecord.username,
-                            userEmail: userRecord.email
+                            userEmail: userRecord.email,
+                            userId: userRecord._id
                         })
                         }
                         else{
