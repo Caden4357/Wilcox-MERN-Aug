@@ -14,11 +14,18 @@ body{
   font-weight: 400;
   color: #555;
 }
-/* .container{
+.container{
   max-width: 130rem;
   padding: 0 3.2rem;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
-} */
+}
+button{
+  display: block;
+  height: 2.6rem;
+}
 .profile-pic{
   width: 9.6rem;
+  height: 9.6rem;
 }

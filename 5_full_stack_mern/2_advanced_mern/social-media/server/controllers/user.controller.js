@@ -87,8 +87,8 @@ module.exports = {
             return res.status(500).send({ msg: "file is not found" })
         }
             // accessing the file
-        const profilePicture = req.files.profilePicture;
-        const myFile = req.files.profilePicture;
+        const profilePicture = req.files.file;
+        const myFile = req.files.file;
         console.log(req.files.file);
         console.log("34-myFile", myFile);
         console.log(`THIS IS 39 ${__dirname}/public/${myFile.name}`);
