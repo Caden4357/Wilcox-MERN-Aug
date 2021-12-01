@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, navigate } from '@reach/router';
+import UploadPicture from "./UploadPicture";
 
 const Dashboard = (props) => {
     const [userList, setUserList] = useState([]);
@@ -54,13 +55,13 @@ const Dashboard = (props) => {
                             <img className="profile-pic"
                             src={`http://localhost:8000/image/${user.profilePicture}`} 
                             alt="Add a profile picture!"/>
-                            <Link to={`/upload/${user._id}`}>This is a link</Link>
-
                         </div>
                     ))
                 }
             </div>
-            <h1>{currentUser.username}</h1>
+            <h1>User {currentUser.username}</h1>
+            {/* <Link to={`/upload/${currentId}`}>Upload Photo</Link> */}
+            <UploadPicture currentId={currentId}/>
             <button onClick={logout}>Logout / Home</button>
         </div>
     )

@@ -15,10 +15,9 @@ function App() {
       <Router>
         <LogAndReg currentId={currentId} default/>
         <Dashboard 
-        currentUser={currentUser}
         currentId={currentId}
         path="/dashboard/:currentId"/>
-        <UploadPicture path="/upload/:id"/>
+        {/* <UploadPicture path="/upload/:id"/> */}
       </Router>
     </div>
   );
