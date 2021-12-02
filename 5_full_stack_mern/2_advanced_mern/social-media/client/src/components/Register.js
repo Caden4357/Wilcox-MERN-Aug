@@ -56,69 +56,71 @@ const Register = (props) => {
     }
     return (
         <div className="container">
-            <h1>Register</h1>
+            {/* <h1>Register</h1>
             {
                 confirmReg?
                 <h4 style={{color: "green"}}>{confirmReg}</h4>
                 :null
-            }
-            <form onSubmit={register} encType='multipart/form-data'>
-            <div>
-                    <label>First Name:</label>
-                    {
-                        errors.firstName?
-                        <span style={{color: "red"}}>{errors.firstName.message}</span>
-                        :null
-                    }
-                    <input type="text" name="firstName" value={user.firstName} onChange={(e) => handleChange(e)}/>
-                </div>
+            } */}
+            {/* <div className="login-form">
+                <form onSubmit={register} encType='multipart/form-data'>
                 <div>
-                    <label>Last Name:</label>
-                    {
-                        errors.lastName?
-                        <span style={{color: "red"}}>{errors.lastName.message}</span>
-                        :null
-                    }
-                    <input type="text" name="lastName" value={user.lastName} onChange={(e) => handleChange(e)}/>
-                </div>
-                <div>
-                    <label>Username:</label>
-                    {
-                        errors.username?
-                        <span style={{color: "red"}}>{errors.username.message}</span>
-                        :null
-                    }
-                    <input type="text" name="username" value={user.username} onChange={(e) => handleChange(e)}/>
-                </div>
-                <div>
-                    <label>Email:</label>
-                    {
-                        errors.email?
-                        <span style={{color: "red"}}>{errors.email.message}</span>
-                        :null
-                    }
-                    <input type="text" name="email" value={user.email} onChange={(e) => handleChange(e)}/>
-                </div>
-                <div>
-                    <label>Password:</label>
-                    {
-                        errors.password?
-                        <span style={{color: "red"}}>{errors.password.message}</span>
-                        :null
-                    }
-                    <input type="password" name="password" value={user.password} onChange={(e) => handleChange(e)}/>
-                </div>
-                <div>
-                    <label>Confirm Password:</label>
-                    {
-                        errors.confirmPassword?
-                        <span style={{color: "red"}}>{errors.confirmPassword.message}</span>
-                        :null
-                    }
-                    <input type="password" name="confirmPassword" value={user.confirmPassword} onChange={(e) => handleChange(e)}/>
-                </div>
-                <button type="submit">Register</button>
-            </form>
+                        <label>First Name:</label>
+                        {
+                            errors.firstName?
+                            <span style={{color: "red"}}>{errors.firstName.message}</span>
+                            :null
+                        }
+                        <input type="text" name="firstName" value={user.firstName} onChange={(e) => handleChange(e)}/>
+                    </div>
+                    <div>
+                        <label>Last Name:</label>
+                        {
+                            errors.lastName?
+                            <span style={{color: "red"}}>{errors.lastName.message}</span>
+                            :null
+                        }
+                        <input type="text" name="lastName" value={user.lastName} onChange={(e) => handleChange(e)}/>
+                    </div>
+                    <div>
+                        <label>Username:</label>
+                        {
+                            errors.username?
+                            <span style={{color: "red"}}>{errors.username.message}</span>
+                            :null
+                        }
+                        <input type="text" name="username" value={user.username} onChange={(e) => handleChange(e)}/>
+                    </div>
+                    <div>
+                        <label>Email:</label>
+                        {
+                            errors.email?
+                            <span style={{color: "red"}}>{errors.email.message}</span>
+                            :null
+                        }
+                        <input type="text" name="email" value={user.email} onChange={(e) => handleChange(e)}/>
+                    </div>
+                    <div>
+                        <label>Password:</label>
+                        {
+                            errors.password?
+                            <span style={{color: "red"}}>{errors.password.message}</span>
+                            :null
+                        }
+                        <input type="password" name="password" value={user.password} onChange={(e) => handleChange(e)}/>
+                    </div>
+                    <div>
+                        <label>Confirm Password:</label>
+                        {
+                            errors.confirmPassword?
+                            <span style={{color: "red"}}>{errors.confirmPassword.message}</span>
+                            :null
+                        }
+                        <input type="password" name="confirmPassword" value={user.confirmPassword} onChange={(e) => handleChange(e)}/>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+            </div> */}
         </div>
     )
 }
